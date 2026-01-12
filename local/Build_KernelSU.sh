@@ -142,9 +142,9 @@ fi
 echo "⚡ 正在配置 KernelSU..."
 cd kernel_platform
 
-curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/refs/heads/main/kernel/setup.sh" | bash -s main
+curl -LSs "https://raw.githubusercontent.com/niqiuqiux/KernelSU/refs/heads/main/kernel/setup.sh" | bash -s main
 cd KernelSU
-KSU_VERSION=$(expr $(curl -sI "https://api.github.com/repos/tiann/KernelSU/commits?sha=main&per_page=1" | grep -i "link:" | sed -n 's/.*page=\([0-9]*\)>; rel="last".*/\1/p') "+" 30000)
+KSU_VERSION=$(expr $(curl -sI "https://api.github.com/repos/niqiuqiux/KernelSU/commits?sha=main&per_page=1" | grep -i "link:" | sed -n 's/.*page=\([0-9]*\)>; rel="last".*/\1/p') "+" 30000)
 echo "KSUVER=$KSU_VERSION" >> $GITHUB_ENV
 sed -i "s/DKSU_VERSION=16/DKSU_VERSION=${KSU_VERSION}/" kernel/Kbuild
 
